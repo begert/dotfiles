@@ -9,11 +9,13 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-set autoindent
 set expandtab
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
+
+" Use space to run macro recorded at q
+noremap <Space> @q
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -37,9 +39,6 @@ map Q gq
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" Use space to run macro recorded at q
-noremap <Space> @q
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
