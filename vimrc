@@ -18,6 +18,8 @@ set shiftwidth=2
 
 " Use space to run macro recorded at q
 noremap <Space> @q
+" Use kj for exiting INSERT mode
+imap kj <Esc>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
