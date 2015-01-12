@@ -1,6 +1,6 @@
 " Started from Bram Moolenaar's example vimrc
 
-call pathogen#infect()
+" call pathogen#infect()
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -18,6 +18,9 @@ set shiftwidth=2
 
 " Use space to run macro recorded at q
 noremap <Space> @q
+inoremap <Esc> kj
+noremap ü "0p
+noremap è "0P
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
