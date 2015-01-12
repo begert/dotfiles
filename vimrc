@@ -18,7 +18,9 @@ set shiftwidth=2
 
 " Use space to run macro recorded at q
 noremap <Space> @q
-inoremap <Esc> kj
+" Use kj for exiting INSERT mode
+inoremap kj <Esc>
+" shortcuts for paste register 0 (last yanked text)
 noremap ü "0p
 noremap è "0P
 
