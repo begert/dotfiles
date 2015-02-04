@@ -16,6 +16,8 @@ set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 
+" Toggle NERDTree with crtl-n
+map <C-n> :NERDTreeToggle<Cr>
 " Use space to run macro recorded at q
 noremap <Space> @q
 " Use kj for exiting INSERT mode
