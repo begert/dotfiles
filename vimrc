@@ -1,6 +1,6 @@
 " Started from Bram Moolenaar's example vimrc
 
-call pathogen#infect()
+" call pathogen#infect()
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -21,7 +21,10 @@ map <C-n> :NERDTreeToggle<Cr>
 " Use space to run macro recorded at q
 noremap <Space> @q
 " Use kj for exiting INSERT mode
-imap kj <Esc>
+inoremap kj <Esc>
+" shortcuts for paste register 0 (last yanked text)
+noremap ü "0p
+noremap è "0P
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -54,6 +57,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   colorscheme desert
   set hlsearch
+
 endif
 
 " Only do this part when compiled with support for autocommands.
