@@ -1,6 +1,7 @@
 " Started from Bram Moolenaar's example vimrc
 
-" call pathogen#infect()
+call pathogen#infect()
+colorscheme koehler
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
