@@ -38,6 +38,9 @@ set number  " show line-numbers by default
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+set textwidth=70
+set formatoptions+=n  " format numbered listings with an indent
+
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
