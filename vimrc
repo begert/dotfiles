@@ -27,6 +27,11 @@ inoremap kj <Esc>
 noremap ü "0p
 noremap è "0P
 
+" set the leaderkey to comma
+let mapleader = ","
+" open .vimrc in a new tab
+noremap <leader>v :tabe $MYVIMRC<cr>
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
