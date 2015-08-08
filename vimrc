@@ -13,12 +13,20 @@ endif
 set nocompatible
 
 set expandtab
-set softtabstop=2
-set tabstop=2
-set shiftwidth=2
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 
 " Toggle NERDTree with crtl-n
 map <C-n> :NERDTreeToggle<Cr>
+
+" Switch <cr> <ctrl-t> behaviour for ctrl-p
+" open a new tab is now default
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
 " Use space to run macro recorded at q
 noremap <Space> @q
 " Use kj for exiting INSERT mode
