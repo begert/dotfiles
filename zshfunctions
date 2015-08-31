@@ -1,0 +1,6 @@
+
+# SUPress ERror FIND
+function superfind() {
+    echo "Errors will be suppressed"
+    find . -name "$@" 2>/dev/null
+}
