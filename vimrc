@@ -1,8 +1,3 @@
-" Started from Bram Moolenaar's example vimrc
-
-call pathogen#infect()
-colorscheme koehler
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -20,12 +15,33 @@ set shiftwidth=4
 " Toggle NERDTree with crtl-n
 map <C-n> :NERDTreeToggle<Cr>
 
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Show the line number relative to the line with the cursor
+set relativenumber
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Some shortcut for :
+nnoremap ö :
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " Switch <cr> <ctrl-t> behaviour for ctrl-p
 " open a new tab is now default
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
+
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
 " Use space to run macro recorded at q
 noremap <Space> @q
@@ -50,9 +66,6 @@ set ruler		" show the cursor position all the time
 set number  " show line-numbers by default
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-set textwidth=70
-set formatoptions+=n  " format numbered listings with an indent
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
