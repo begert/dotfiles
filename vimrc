@@ -1,10 +1,9 @@
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+" You are now looking at Mathias Begert's vimrc
+" Started from Bram Moolenaar's example vimrc
+"
+" Added a lot of funny stuff inspired or copied from a lot of friendly people
+" all around the internet, thanks for that!
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
 set expandtab
@@ -12,14 +11,23 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 
-" Toggle NERDTree with crtl-n
-map <C-n> :NERDTreeToggle<Cr>
-
-" Display extra whitespace
+set history=50
 set list listchars=tab:»·,trail:·,nbsp:·
-
-" Show the line number relative to the line with the cursor
+set ruler
+set number
 set relativenumber
+set incsearch
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" disable annoying backup files
+set nobackup
+set nowritebackup
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -29,30 +37,14 @@ nnoremap <C-l> <C-w>l
 
 " Some shortcut for :
 nnoremap ö :
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
-" Switch <cr> <ctrl-t> behaviour for ctrl-p
-" open a new tab is now default
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
-
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-
 " Use space to run macro recorded at q
-noremap <Space> @q
+nnoremap <Space> @q
 " Use kj for exiting INSERT mode
 inoremap kj <Esc>
-" shortcuts for paste register 0 (last yanked text)
-noremap ü "0p
-noremap è "0P
 
 " set the leaderkey to comma
 let mapleader = ","
+
 " open .vimrc in a new tab
 noremap <leader>v :tabe $MYVIMRC<cr>
 " call the last command in the lower pane of tmux
@@ -68,28 +60,9 @@ if has("autocmd")
     autocmd! BufWritePost .nvimrc source $MYVIMRC
 endif
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set nobackup
-set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set number  " show line-numbers by default
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
 " In many terminal emulators the mouse works just fine, thus enable it.
+" But use it only in normal mode so pasting in puTTY (for example) is still
+" possible
 if has('mouse')
   set mouse=n
 endif
@@ -100,7 +73,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   colorscheme desert
   set hlsearch
-
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -133,14 +105,21 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+    " always set autoindenting on
+    set autoindent
 
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
 endif
+
+" ----- NOW SOME PLUGIN SPECIFIC THINGS -----
+
+" Toggle NERDTree with crtl-n
+" map <C-n> :NERDTreeToggle<Cr>
+
+" Switch <cr> <ctrl-t> behaviour for ctrl-p
+" open a new tab is now default
+" let g:ctrlp_prompt_mappings = {
+"     \ 'AcceptSelection("e")': ['<c-t>'],
+"     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+"     \ }
+
+" let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
