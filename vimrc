@@ -55,6 +55,8 @@ noremap è "0P
 let mapleader = ","
 " open .vimrc in a new tab
 noremap <leader>v :tabe $MYVIMRC<cr>
+" call the last command in the lower pane of tmux
+noremap <leader>. :!tmux select-pane -D && tmux send-keys up enter && tmux select-pane -l<cr><cr>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
