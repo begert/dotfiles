@@ -11,6 +11,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -116,13 +117,12 @@ endif
 " ----- NOW SOME PLUGIN SPECIFIC THINGS -----
 
 " Toggle NERDTree with crtl-n
-" map <C-n> :NERDTreeToggle<Cr>
+map <C-n> :NERDTreeToggle<Cr>
 
 " Switch <cr> <ctrl-t> behaviour for ctrl-p
 " open a new tab is now default
-" let g:ctrlp_prompt_mappings = {
-"     \ 'AcceptSelection("e")': ['<c-t>'],
-"     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-"     \ }
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
-" let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
