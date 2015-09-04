@@ -60,6 +60,14 @@ noremap <leader>. :!tmux select-pane -D && tmux send-keys up enter && tmux selec
 " find all block comments
 noremap <leader>c /\/\*\(.\\|\n\)\{-}\*\/<cr>
 
+" automatically reload .vimrc after save
+if has("autocmd")
+    autocmd! BufWritePost vimrc source $MYVIMRC
+    autocmd! BufWritePost .vimrc source $MYVIMRC
+    autocmd! BufWritePost nvimrc source $MYVIMRC
+    autocmd! BufWritePost .nvimrc source $MYVIMRC
+endif
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
