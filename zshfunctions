@@ -4,3 +4,8 @@ function superfind() {
     echo "Errors will be suppressed"
     find . -name "$@" 2>/dev/null
 }
+
+# List oh-my-zsh git plugin aliases
+function gitsc() {
+    cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh | grep alias | less
+}
