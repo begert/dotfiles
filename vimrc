@@ -44,6 +44,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+noremap <C-Y> <C-Y><C-Y><C-Y>
+noremap <C-E> <C-E><C-E><C-E>
 
 " Some shortcut for :
 nnoremap ö :
@@ -75,6 +77,8 @@ endif
 " possible
 if has('mouse')
   set mouse=n
+  map <ScrollWheelUp> <C-Y>
+  map <ScrollWheelDown> <C-E>
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
