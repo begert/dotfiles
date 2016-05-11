@@ -40,13 +40,9 @@ set backspace=indent,eol,start
 set nobackup
 set nowritebackup
 
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-noremap <C-Y> <C-Y><C-Y><C-Y>
-noremap <C-E> <C-E><C-E><C-E>
+" move window with c-k and c-j
+nnoremap <C-k> <C-Y><C-Y><C-Y>
+nnoremap <C-j> <C-E><C-E><C-E>
 
 " Some shortcut for :
 nnoremap ö :
@@ -130,4 +126,6 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
+" automatically exclude all .gitignore'd file for ctrl-p
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
