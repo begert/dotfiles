@@ -1,8 +1,5 @@
 " You are now looking at Mathias Begert's vimrc
 " Started from Bram Moolenaar's example vimrc
-"
-" Added a lot of funny stuff inspired or copied from a lot of friendly people
-" all around the internet, thanks for that!
 
 set nocompatible
 filetype off
