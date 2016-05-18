@@ -9,3 +9,8 @@ function superfind() {
 function gitsc() {
     cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh | grep alias | less
 }
+
+function formatjson() {
+    python -m json.tool $1 > $1.formatted.json
+    mv $1.formatted.json $1
+}
