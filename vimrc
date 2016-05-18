@@ -1,8 +1,5 @@
 " You are now looking at Mathias Begert's vimrc
 " Started from Bram Moolenaar's example vimrc
-"
-" Added a lot of funny stuff inspired or copied from a lot of friendly people
-" all around the internet, thanks for that!
 
 set nocompatible
 filetype off
@@ -40,13 +37,9 @@ set backspace=indent,eol,start
 set nobackup
 set nowritebackup
 
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-noremap <C-Y> <C-Y><C-Y><C-Y>
-noremap <C-E> <C-E><C-E><C-E>
+" move window with c-k and c-j
+nnoremap <C-k> <C-Y><C-Y><C-Y>
+nnoremap <C-j> <C-E><C-E><C-E>
 
 " Some shortcut for :
 nnoremap ö :
@@ -124,10 +117,6 @@ endif
 " Toggle NERDTree with crtl-n
 map <C-n> :NERDTreeToggle<Cr>
 
-" Switch <cr> <ctrl-t> behaviour for ctrl-p
-" open a new tab is now default
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+" automatically exclude all .gitignore'd file for ctrl-p
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
