@@ -10,6 +10,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'Shougo/vimproc' "tsuquyomi needs this...
+Plugin 'Quramy/tsuquyomi' "typescript
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,6 +60,15 @@ noremap <leader>v :tabe $MYVIMRC<cr>
 noremap <leader>. :!tmux select-pane -D && tmux send-keys up enter && tmux select-pane -l<cr><cr>
 " find all block comments
 noremap <leader>c /\/\*\(.\\|\n\)\{-}\*\/<cr>
+"
+" move inside splits with leader instead of <c-w>
+noremap <leader>h <c-w>h
+noremap <leader>j <c-w>j
+noremap <leader>k <c-w>k
+noremap <leader>l <c-w>l
+
+" jump c-] on german keyboard
+noremap <leader>b <c-]>
 
 " automatically reload .vimrc after save
 if has("autocmd")
