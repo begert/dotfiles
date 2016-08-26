@@ -51,6 +51,10 @@ nnoremap <Space> @q
 " Use kj for exiting INSERT mode
 inoremap kj <Esc>
 
+" add some mappings to simply add (or surround) xml tags
+noremap mt diwi<<esc>pa><esc>a</<esc>pa><esc>F<
+vnoremap mt di<xxx><esc>o</xxx><esc>P>/<\/xxx<cr>/xxx<cr>Ncw
+
 " set the leaderkey to comma
 let mapleader = ","
 
