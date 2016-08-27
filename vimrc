@@ -55,6 +55,18 @@ inoremap kj <Esc>
 noremap mt diwi<<esc>pa><esc>a</<esc>pa><esc>F<
 vnoremap mt di<xxx><esc>o</xxx><esc>P>/<\/xxx<cr>/xxx<cr>Ncw
 
+" validate xml buffer
+function! ValidateXmlBuffer()
+    let res = system("xmllint --valid --noout -", join(getline(1, '$'), "\n"))
+    if strlen(res) == 0
+        echom "perfekts igsämäl"
+    else
+        echo "igsämäl het ä fähler:" res
+    endif
+endfunction
+noremap <leader>x :call ValidateXmlBuffer()<esc>
+
+
 " set the leaderkey to comma
 let mapleader = ","
 
