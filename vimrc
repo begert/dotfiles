@@ -40,6 +40,9 @@ set backspace=indent,eol,start
 set nobackup
 set nowritebackup
 
+" set the leaderkey to comma
+let mapleader = ","
+
 " move window with c-k and c-j
 nnoremap <C-k> <C-Y><C-Y><C-Y>
 nnoremap <C-j> <C-E><C-E><C-E>
@@ -65,10 +68,6 @@ function! ValidateXmlBuffer()
     endif
 endfunction
 noremap <leader>x :call ValidateXmlBuffer()<cr>
-
-
-" set the leaderkey to comma
-let mapleader = ","
 
 " open .vimrc in a new tab
 noremap <leader>v :tabe $MYVIMRC<cr>
