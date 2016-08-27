@@ -64,7 +64,7 @@ function! ValidateXmlBuffer()
         echo "igsämäl het ä fähler:" res
     endif
 endfunction
-noremap <leader>x :call ValidateXmlBuffer()<esc>
+noremap <leader>x :call ValidateXmlBuffer()<cr>
 
 
 " set the leaderkey to comma
