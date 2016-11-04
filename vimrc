@@ -47,8 +47,8 @@ let mapleader = ","
 nnoremap <C-k> <C-Y><C-Y><C-Y>
 nnoremap <C-j> <C-E><C-E><C-E>
 
-" Some shortcut for :
-nnoremap ö :
+" Shortcut to switch window
+nnoremap ö <C-w>p
 " Use space to run macro recorded at q
 nnoremap <Space> @q
 " Use kj for exiting INSERT mode
@@ -68,6 +68,9 @@ function! ValidateXmlBuffer()
     endif
 endfunction
 noremap <leader>x :call ValidateXmlBuffer()<cr>
+
+" pretty print json
+command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " open .vimrc in a new tab
 noremap <leader>v :tabe $MYVIMRC<cr>
@@ -146,4 +149,3 @@ map <C-n> :NERDTreeToggle<Cr>
 
 " automatically exclude all .gitignore'd file for ctrl-p
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
