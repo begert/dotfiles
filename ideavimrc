@@ -1,0 +1,16 @@
+set hls
+set relativenumber
+set incsearch
+
+inoremap kj <esc>
+
+" move window with c-k and c-j
+nnoremap <C-k> <C-Y><C-Y><C-Y>
+nnoremap <C-j> <C-E><C-E><C-E>
+
+nnoremap <Space> @q
+
+let mapleader = ","
+
+map <leader>r :action RunClass<cr>
+

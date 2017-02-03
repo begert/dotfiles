@@ -9,6 +9,9 @@ ln -s ~/dotfiles/vim ~/.vim
 mv -v ~/.nvimrc ~/.nvimrc_old 2> /dev/null
 ln -s ~/dotfiles/vimrc ~/.nvimrc
 
+mv -v ~/.ideavimrc ~/.ideavimrc_old 2> /dev/null
+ln -s ~/dotfiles/ideavimrc ~/.ideavimrc
+
 mv -v ~/.tmux.conf ~/.tmux.conf_old 2> /dev/null
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
