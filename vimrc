@@ -86,7 +86,7 @@ noremap <leader>k <c-w>k
 noremap <leader>l <c-w>l
 
 " jump c-] on german keyboard
-noremap <leader>b <c-]>
+nmap <leader>b <c-]>
 
 " automatically reload .vimrc after save
 if has("autocmd")
