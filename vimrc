@@ -9,9 +9,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Shougo/vimproc' "tsuquyomi needs this...
-Plugin 'Quramy/tsuquyomi' "typescript
 Plugin 'tpope/vim-surround'
 
 call vundle#end()
