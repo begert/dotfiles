@@ -46,6 +46,8 @@ nnoremap <C-j> <C-E><C-E><C-E>
 
 " Shortcut to switch window
 nnoremap ö <C-w>p
+" Shortcut for select all
+nnoremap <leader>a ggVG
 " Use space to run macro recorded at q
 nnoremap <Space> @q
 " Use kj for exiting INSERT mode
