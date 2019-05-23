@@ -1,5 +1,6 @@
 
 alias tmux="TERM=xterm-256color tmux"
+alias tm="TERM=xterm-256color tmux"
 alias gits="git status"
 alias :q="exit"
 alias rc="vim ~/.zshrc; source ~/.zshrc"
@@ -22,4 +23,8 @@ function gitsc() {
 function formatjson() {
     python -m json.tool $1 > $1.formatted.json
     mv $1.formatted.json $1
+}
+
+function calc() {
+    python -c "print($1)"
 }
