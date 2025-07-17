@@ -7,9 +7,11 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,12 +42,17 @@ set nowritebackup
 " set the leaderkey to comma
 let mapleader = ","
 
-" move window with c-k and c-j
-nnoremap <C-k> <C-Y><C-Y><C-Y>
-nnoremap <C-j> <C-E><C-E><C-E>
+" set the netrw liststyle to 'tree'
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+" open netrw files in new tab
+let g:netrw_browse_split = 3
 
-" Shortcut to switch window
-nnoremap ö <C-w>p
+" faster way to move window with
+nnoremap <C-I> <C-Y><C-Y><C-Y>
+nnoremap <C-N> <C-E><C-E><C-E>
+
+
 " Shortcut for select all
 nnoremap <leader>a ggVG
 " Use space to run macro recorded at q
@@ -53,36 +60,15 @@ nnoremap <Space> @q
 " Use kj for exiting INSERT mode
 inoremap kj <Esc>
 
-" add some mappings to simply add (or surround) xml tags
-noremap mt diwi<<esc>pa><esc>a</<esc>pa><esc>F<
-vnoremap mt di<xxx><esc>o</xxx><esc>P>/<\/xxx<cr>/xxx<cr>Ncw
 
-" validate xml buffer
-function! ValidateXmlBuffer()
-    let res = system("xmllint --valid --noout -", join(getline(1, '$'), "\n"))
-    if strlen(res) == 0
-        echom "perfekts igsämäl"
-    else
-        echo "igsämäl het ä fähler:" res
-    endif
-endfunction
-noremap <leader>x :call ValidateXmlBuffer()<cr>
-
-" pretty print json
-command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
-
-" open .vimrc in a new tab
+" open .vimrc in a new tab / vsp
 noremap <leader>v :tabe $MYVIMRC<cr>
+noremap <leader>vsp :vsp $MYVIMRC<cr>
+
 " call the last command in the lower pane of tmux
 noremap <leader>. :!tmux select-pane -D && tmux send-keys up enter && tmux select-pane -l<cr><cr>
 " find all block comments
 noremap <leader>c /\/\*\(.\\|\n\)\{-}\*\/<cr>
-"
-" move inside splits with leader instead of <c-w>
-noremap <leader>h <c-w>h
-noremap <leader>j <c-w>j
-noremap <leader>k <c-w>k
-noremap <leader>l <c-w>l
 
 " jump c-] on german keyboard
 nmap <leader>b <c-]>
@@ -145,9 +131,6 @@ else
 endif
 
 " ----- NOW SOME PLUGIN SPECIFIC THINGS -----
-
-" Toggle NERDTree with crtl-n
-map <C-n> :NERDTreeToggle<Cr>
 
 " automatically exclude all .gitignore'd file for ctrl-p
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']

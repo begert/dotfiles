@@ -7,7 +7,8 @@ alias rc="vim ~/.zshrc; source ~/.zshrc"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 
-export MANPAGER="col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -"
+#export MANPAGER="col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -"
+export MANPAGER="nvim +Man!"
 
 # SUPress ERror FIND
 function superfind() {
